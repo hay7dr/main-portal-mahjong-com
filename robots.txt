@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hay7dr.github.io/main-portal-mahjong-com/sitemap.xml

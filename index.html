@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一篇关于麻将胡了的页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #f9e9d2 0%, #f3ceaa 40%, #eab98f 100%);
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+            color: #3e2e1d;
+        }
+
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background: #fffcf7;
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 20px 40px -12px rgba(120, 70, 30, 0.25),
+                        0 8px 16px rgba(0,0,0,0.03);
+            padding: 2.8rem 2.5rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 520px) {
+            .card {
+                padding: 2rem 1.2rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #e7d3ba;
+            color: #4d3622;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.6rem;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #3a2a18;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            color: #5c4732;
+            margin-bottom: 2rem;
+            border-left: 4px solid #d9b382;
+            padding-left: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 1.3rem;
+            color: #3f3325;
+        }
+
+        a {
+            color: #b4723e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #dbb58b;
+            transition: border 0.2s, background 0.2s;
+            padding: 0 0.1rem;
+        }
+
+        a:hover {
+            border-bottom: 2px solid #a8622a;
+            background: #f5ede3;
+            border-radius: 4px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0 2.2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem 1.8rem;
+        }
+
+        @media (max-width: 540px) {
+            .feature-list {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 1.8rem;
+            font-size: 1rem;
+            color: #423727;
+        }
+
+        .feature-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #c38d5d;
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        .faq-note {
+            background: #f7efe5;
+            border-radius: 24px;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 1.6rem;
+        }
+
+        .faq-note summary {
+            font-weight: 600;
+            color: #4d3a27;
+            cursor: pointer;
+            font-size: 1rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .faq-note summary::before {
+            content: "↘";
+            color: #ae7b4c;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .faq-note[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-note p {
+            margin: 1rem 0 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .gentle-footer {
+            margin-top: 2rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #7b6852;
+            border-top: 1px solid #e4d5c2;
+            padding-top: 1.5rem;
+            font-style: italic;
+        }
+
+        .button-link {
+            display: inline-block;
+            background: #e5cdb2;
+            color: #3f2e1b;
+            padding: 0.45rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 500;
+            border: none;
+            border-bottom: none;
+            box-shadow: 0 4px 8px rgba(150, 100, 50, 0.1);
+            transition: background 0.2s, transform 0.1s;
+            text-decoration: none;
+        }
+
+        .button-link:hover {
+            background: #dbbc9a;
+            transform: scale(1.01);
+            border-bottom: none;
+        }
+
+        .button-link:active {
+            transform: scale(0.97);
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <span class="hero-tag">· 一点方向 ·</span>
+    <h1>想快速识别<br>这个网站能做什么</h1>
+    <div class="lead">
+        有时候你打开一个页面，几秒内就想知道它是否对路。<br>
+        关于<a href="https://main-portal-mahjong.com">麻将胡了</a>，这里是一些平实的描述。
+    </div>
+
+    <p>
+        很多人第一次看到这个名字，会好奇它到底指向一个什么样的平台。简单说，它围绕麻将主题提供信息与指引，不绕弯子，也没有复杂包装。你不需要花时间猜测用途——页面本身就是为了让人一眼看明白方向。
+    </p>
+    <p>
+        从布局到措辞，都倾向于直接、不打扰。没有夸张的弹窗，也没有催促式的行动号召。如果你熟悉麻将文化，或者只是想找一个正经的麻将相关内容入口，这里会是一个合适的起点。
+    </p>
+
+    <ul class="feature-list">
+        <li>内容围绕麻将展开，不掺杂无关信息</li>
+        <li>结构清晰，分类明确</li>
+        <li>无需注册或下载即可浏览</li>
+        <li>适合新手与资深玩家阅读</li>
+        <li>页面风格沉稳，视觉友好</li>
+        <li>无隐藏诱导链接或广告陷阱</li>
+    </ul>
+
+    <p>
+        除了基础介绍，网站上也能找到一些玩法说明、术语释义，以及不同麻将规则的对比。对于想快速查资料的人来说，比漫无目的搜索省心一些。当然，它并不是一个游戏客户端，而是更像一个信息站。
+    </p>
+
+    <details class="faq-note">
+        <summary>一些常见疑问</summary>
+        <p><strong>需要付费吗？</strong> 网站本身免费访问，没有隐藏收费项目。</p>
+        <p><strong>内容会更新吗？</strong> 会不定期补充常见问题与规则解析。</p>
+        <p><strong>和麻将胡了游戏有关系吗？</strong> 它提供的是信息与导航，与具体游戏客户端无关。</p>
+    </details>
+
+    <p>
+        如果你恰好需要这样一个参考页面，不妨直接去 <a href="https://main-portal-mahjong.com">麻将胡了</a> 看一看。没有压力，也没有多余的步骤。
+    </p>
+
+    <div class="gentle-footer">
+        —— 一篇安静的介绍，仅此而已。
+    </div>
+</div>
+</body>
+</html>
